@@ -1,10 +1,21 @@
-from flask import Flask
-app = Flask(__name__)
+from flask import Flask , request
+app = Flask (__name__)
 
-@app.route('/')
-
+@app.route("/")
 def index():
-    return "<h1>this is next day test1</h1>"
+    return "<h3>this is test 5</h3>"
 
-if __name__ == '__main__':
-    app.run(debug=True, port=1234)
+@app.route("/greeting/<name>")
+def greeting(name):
+    return f"Hell Good evening {name}"
+
+@app.route ("/summation/<int:num1>/<int:num2>")
+def sum(num1,num2):
+    return f"{num1} + {num2} = {num1+num2}"
+
+@app.route ('/url_params')
+def params():
+    return str(request.args)
+
+if __name__ == "__main__":
+    app.run (debug=True)
