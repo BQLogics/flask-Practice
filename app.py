@@ -17,5 +17,9 @@ def sum(num1,num2):
 def params():
     return str(request.args)
 
+@app.route("/home")
+def home():
+    return f"this is another test6"
+
 if __name__ == "__main__":
     app.run (debug=True)
