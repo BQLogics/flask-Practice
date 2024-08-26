@@ -1,9 +1,9 @@
-from flask import Flask , request
-app = Flask (__name__)
+from flask import Flask , request, render_template
+app = Flask (__name__,template_folder="templates")
 
 @app.route("/")
 def index():
-    return "<h3>this is test 5</h3>"
+    return render_template("/index.html")
 
 @app.route("/greeting/<name>")
 def greeting(name):
